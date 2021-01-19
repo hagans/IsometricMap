@@ -8,12 +8,10 @@ public class Map : MonoBehaviour
     List<Cell> _cells = new List<Cell>();
 
 
-
     /// <summary>
     /// <see cref="Tilemap"/> which contains all the graphics.
     /// </summary>
     public Tilemap Tilemap => _tilemap;
-
 
 
     Cell this[Vector3Int position]
@@ -31,7 +29,6 @@ public class Map : MonoBehaviour
             return newCell;
         }
     }
-
 
 
     /// <summary>
@@ -68,18 +65,18 @@ public class Map : MonoBehaviour
     public Vector3 WorldPositionOfCell(Cell cell) => _tilemap.CellToWorld(cell.Position);    
 }
 
+
+
 public class Cell
 {
     Map _map;
 
-    
-    
+        
     public Cell(Map map, Vector3Int position)
     {
         _map = map;
         Position = position;
     }
-
     
     
     /// <summary>
@@ -100,7 +97,6 @@ public class Cell
     /// World position of the <see cref="Cell"/>, any transform placed at this position will be above the cell.
     /// </summary>
     public Vector3 WorldPosition => _map.WorldPositionOfCell(this);
-
     
     
     /// <summary>
