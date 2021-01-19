@@ -81,7 +81,7 @@ public class Cell
     public Vector3Int Position { get; }    
 
     /// <summary>
-    /// Tile representing this cell.
+    /// <see cref="TileBase"/> which this cell represents.
     /// </summary>
     public TileBase Tile
     {
