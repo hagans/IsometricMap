@@ -32,7 +32,7 @@ public class Map : MonoBehaviour
 
 
     /// <summary>
-    /// Defines if the instance contains a <see cref="Cell"/> at the specified position.
+    /// Defines whether the instance contains a <see cref="Cell"/> at the specified position.
     /// </summary>
     /// <param name="position">Position of the searched <see cref="Cell"/>.</param>
     /// <returns><see langword="true"/> if <see cref="Cell"/> exists, otherwise <see langword="false"/>.</returns>
