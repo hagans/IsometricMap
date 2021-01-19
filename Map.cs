@@ -5,8 +5,9 @@ using UnityEngine.Tilemaps;
 public class Map : MonoBehaviour
 {
     [SerializeField] Tilemap _tilemap;
-
     List<Cell> _cells = new List<Cell>();
+
+
 
     /// <summary>
     /// <see cref="Tilemap"/> which contains all the graphics.
@@ -71,12 +72,16 @@ public class Cell
 {
     Map _map;
 
+    
+    
     public Cell(Map map, Vector3Int position)
     {
         _map = map;
         Position = position;
     }
 
+    
+    
     /// <summary>
     /// Position of the <see cref="Cell"/> on the <see cref="Tilemap"/>.
     /// </summary>
@@ -96,6 +101,8 @@ public class Cell
     /// </summary>
     public Vector3 WorldPosition => _map.WorldPositionOfCell(this);
 
+    
+    
     /// <summary>
     /// Calculates the number of cells between a and b.
     /// </summary>
