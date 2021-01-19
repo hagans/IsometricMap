@@ -14,23 +14,6 @@ public class Map : MonoBehaviour
     public Tilemap Tilemap => _tilemap;
 
 
-    Cell this[Vector3Int position]
-    {
-        get
-        {
-            for(int i = 0; i < _cells.Count; i++)
-            {
-                if (_cells[i].Position == position)
-                    return _cells[i];
-            }
-
-            var newCell = new Cell(this, position);
-            _cells.Add(newCell);
-            return newCell;
-        }
-    }
-
-
     /// <summary>
     /// Defines whether the instance contains a <see cref="Cell"/> at the specified position.
     /// </summary>
@@ -48,7 +31,7 @@ public class Map : MonoBehaviour
         var cellPosition = _tilemap.WorldToCell(position);
 
         if (_tilemap.GetTile(cellPosition))
-            return this[cellPosition];
+            return GetCell(cellPosition);
 
         return null;
     }
@@ -62,7 +45,20 @@ public class Map : MonoBehaviour
     /// <summary>
     /// Gets the world coordinates of the specified <see cref="Cell"/>.
     /// </summary>
-    public Vector3 WorldPositionOfCell(Cell cell) => _tilemap.CellToWorld(cell.Position);    
+    public Vector3 WorldPositionOfCell(Cell cell) => _tilemap.CellToWorld(cell.Position);
+    
+    Cell GetCell(Vector3Int position)
+    {
+        for (int i = 0; i < _cells.Count; i++)
+        {
+            if (_cells[i].Position == position)
+                return _cells[i];
+        }
+
+        var newCell = new Cell(this, position);
+        _cells.Add(newCell);
+        return newCell;        
+    }
 }
 
 
